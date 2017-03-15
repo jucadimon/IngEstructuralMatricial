@@ -1,0 +1,33 @@
+Para mover el form sin bordes METODO 2
+
+Se emplean tres metodos del form a mover:
+1. MouseMove
+2. MouseDown
+3. MouseUp
+
+Se añaden tres variables en la partial clase from:
+
+Point formPosition;
+Boolean mouseAction;
+
+1.)
+private void Form_MouseDown(object sender, MouseEventArgs e)
+{
+formPosition = new Point(Cursor.Position.X-Location.X, Cursor.Position.Y-Location.Y);
+mouseAction = true;
+}
+
+2.)
+private void Form_MouseMove(object sender, MouseEventArgs e)
+{
+if( mouseAction = true)
+{
+Location = new Point(Cursor.Position.X-formPosition.X, Cursor.Position.Y-formPosition.Y);
+}
+}
+
+3.)
+private void Form_MouseUp(object sender, MouseEventArgs e)
+{
+mouseAction = false;
+}
